@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #f0f0f0; /* Set the background color */
+            overflow: hidden; /* Hide content outside the viewport */
+            margin: 0; /* Remove default margin */
+            font-family: 'Arial', sans-serif; /* Change the font family */
+        }
+
+        .container {
+            position: relative;
+            overflow: hidden; /* Hide content outside the container */
+            width: 100vw; /* Set width to full viewport width */
+            height: 100vh; /* Set height to full viewport height */
+        }
+
+        .text {
+            font-size: 40px; /* Increase the font size */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: 0 0;
+            transform: translate(-50%, -50%) rotate(30deg); /* Initial position and rotation */
+            color: #3498db; /* Change text color to a blue shade */
+            background-image: linear-gradient(45deg, #3498db, #2ecc71); /* Animated gradient */
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .blend-text {
+            mix-blend-mode: difference; /* Adjust blend mode as needed */
+            animation: slideForward 5s linear infinite; /* Adjust animation duration and other properties */
+        }
+
+        .mirror-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: 0 0;
+            transform: translate(-50%, -50%) rotate(30deg) scaleX(-1); /* Mirror horizontally */
+            color: white; /* Change text color */
+            mix-blend-mode: difference; /* Adjust blend mode as needed */
+            animation: slideForward 5s linear infinite; /* Mirror the animation of the main text */
+        }
+
+        .mirror {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f0f0f0; /* Background color same as body */
+            transform: scaleX(-1); /* Mirror horizontally */
+            mix-blend-mode: difference; /* Adjust blend mode as needed */
+            animation: slideForward 5s linear infinite; /* Mirror the animation of the main text */
+        }
+
+        @keyframes slideForward {
+            0% {
+                transform: translate(-50%, -50%) rotate(30deg); /* Initial position and rotation */
+            }
+            100% {
+                transform: translate(50%, -50%) rotate(30deg); /* Final position and rotation */
+            }
+        }
+    </style>
+    <title>Animated Sliding Text with Mirror</title>
+</head>
+<body>
+    <div class="container">
+        <div class="text blend-text">Be positive</div>
+        <div class="text mirror-text">Be positive</div>
+        <div class="mirror"></div>
+    </div>
+
+    <script>
+        // You can add JavaScript code here if needed
+    </script>
+</body>
+</html>
